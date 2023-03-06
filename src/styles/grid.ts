@@ -1,3 +1,4 @@
+/* eslint-disable no-unneeded-ternary */
 import styled from 'styled-components';
 
 interface IStyledContainerProps {

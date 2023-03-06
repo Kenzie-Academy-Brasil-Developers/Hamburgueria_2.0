@@ -1,25 +1,40 @@
+import { useContext } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import CartProductCard from './CartProductCard';
-
 import { StyledCartProductList } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph } from '../../../styles/typography';
+import { pageBuyContext } from '../../../providers/CartContext';
 
-const CartProductList = () => (
-  <StyledCartProductList>
-    <ul>
-      <CartProductCard />
-    </ul>
+const CartProductList = () => {
+  const { calculateProducts, setProductsCart, setModal } =
+    useContext(pageBuyContext);
 
-    <div className='totalBox'>
-      <StyledParagraph>
-        <strong>Total</strong>
-      </StyledParagraph>
-      <StyledParagraph className='total'>R$ 14,00</StyledParagraph>
-    </div>
-    <StyledButton $buttonSize='default' $buttonStyle='gray'>
-      Remover todos
-    </StyledButton>
-  </StyledCartProductList>
-);
+  return (
+    <StyledCartProductList>
+      <ul>
+        <CartProductCard />
+      </ul>
+      <div className='totalBox'>
+        <button type='button' onClick={() => setModal(false)}>
+          Adicione outros itens
+        </button>
+        <StyledParagraph>
+          <strong>Total</strong>
+        </StyledParagraph>
+        <StyledParagraph className='total'>{`R$ ${calculateProducts.toFixed(
+          2
+        )}`}</StyledParagraph>
+      </div>
+      <StyledButton
+        onClick={() => setProductsCart([])}
+        $buttonSize='default'
+        $buttonStyle='gray'
+      >
+        Remover todos
+      </StyledButton>
+    </StyledCartProductList>
+  );
+};
 
 export default CartProductList;

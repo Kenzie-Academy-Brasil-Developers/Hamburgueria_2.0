@@ -31,4 +31,5 @@ export const StyledProductCard = styled.li`
       color: ${({ theme }) => theme.colors.primary};
     }
   }
+  
 `;

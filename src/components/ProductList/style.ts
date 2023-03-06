@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+
 export const StyledProductList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px 50px;
+
+  .loading{
+    color:green;
+    margin-left: 500px;
+    margin-top:200px;
+  }
 
   @media (max-width: 1150px) {
     grid-template-columns: repeat(3, 1fr);
