@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://hamburgueria-kenzie-v2.herokuapp.com/", 
+  baseURL: "https://hmburgueria-v2-db.onrender.com/", 
   timeout: 15000
 })
 
